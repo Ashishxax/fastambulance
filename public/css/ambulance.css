@@ -1,0 +1,118 @@
+.ambulance {
+    /* background: url("ambulance.jpg"); */
+    background-size: cover;
+    background-position: center;
+    width: 104%;
+    height: 94vh;
+    position: absolute;
+    animation: ambulance 4s linear infinite;
+}
+
+.AmbulanceCar {
+    background: url(ambulance.jpg) no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 120vh;
+    position: absolute;
+    animation: mymove 4s infinite;
+    background-size: cover;
+    animation-delay: 2s;
+    animation-timing-function: ease-in-out;
+    position: fixed;
+    z-index: 1;
+}
+
+.outCircle {
+    background-color: transparent;
+    opacity: .9;
+    margin-left: 2px;
+    margin-bottom: 100px;
+    -webkit-animation: spinoffPulse 18s infinite linear;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+@keyframes mymove {
+    from {
+        right: -1px;
+    }
+    to {
+        right: 0px;
+    }
+}
+
+.rotate-img img {
+    width: 22%;
+    margin-left: 530px;
+    margin-top: 150px !important;
+}
+
+.image-two img {
+    margin-left: 489px;
+    width: 27%;
+    margin-bottom: -83px;
+    margin-top: -325px !important;
+}
+
+.image-one img {
+    margin-top: -300px !important;
+    width: 308px;
+    margin-left: 517px;
+}
+
+.image-three img {
+    margin-left: 504px;
+    margin-top: -312px !important;
+    width: 332px;
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotate-one {
+    animation: spin 1s linear infinite;
+    position: fixed;
+    border: 4px solid blue;
+    border-radius: 50%;
+}
+
+.rotate-two {
+    animation: spin 1s linear infinite;
+    position: fixed;
+    border: 4px solid red;
+    border-radius: 50%;
+}
+
+.rotate-three {
+    animation: spin 1s linear infinite;
+    position: fixed;
+}
+
+
+/* @media screen and (min-width: 360px) {
+    .outCircle {
+        margin-left: -497px;
+        margin-top: 180px;
+    }
+    .image-two img {
+        width: 100%;
+    }
+} */
