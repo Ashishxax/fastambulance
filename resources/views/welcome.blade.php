@@ -1,6 +1,15 @@
 @include('layout.header')
 
 <body>
+    <?php    
+    if(Session::get('booked_status'))
+    { 
+        echo '<div class="loader"></div>';
+        echo "<script type='text/javascript'>
+        swal('Success', 'Ambulance has been book,You will get a call', 'success');
+        </script>";
+    }
+?>
     <div class="wrap">
         <div class="AmbulanceCar" style='background-image: url("img/ambulance_image/ambulance.jpg");'>
             <div class="rotate-img">

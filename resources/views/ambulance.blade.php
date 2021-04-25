@@ -112,30 +112,32 @@
             <div class="modal-body" id="records">
                 <button type="button" class="close" data-dismiss="modal">×</button>
                 <div class="signup-form">
-                    <form action="/examples/actions/confirmation.php" method="post">
-                        <h2>Sign Up</h2>
-                        <p>Please fill in this form to create an account!</p>
+                    <form action="{{URL::to('ambulance-booking')}}" method="post" id="ambulanceForm">
+                        @csrf
+                        <h2>Fast Book Ambulance</h2>
+                        <strong>Please fill in this form to book ambulance</strong>
                         <hr>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" name="username" placeholder="Username"
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name"
                                     required="required">
                             </div>
+                            <span class="badge badge-danger fieldRequiredName" style="display: none">Enter your
+                                name</span>
                         </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-                                <input type="email" class="form-control" name="email" placeholder="Email Address"
-                                    required="required">
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="text" class="form-control" name="password" placeholder="Password"
-                                    required="required">
+                                <input id="number" class="form-control"
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                    type="number" maxlength="10" required placeholder="Mobile Number" name="number">
                             </div>
+                            <span class="badge badge-danger invalidNo" style="display: none">Number is not valid. Try
+                                with other number</span>
+                            <span class="badge badge-danger fieldRequiredNumber" style="display: none">Enter your
+                                Number</span>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
@@ -143,21 +145,76 @@
                                     <i class="fa fa-lock"></i>
                                     <i class="fa fa-check"></i>
                                 </span>
-                                <input type="text" class="form-control" name="confirm_password"
-                                    placeholder="Confirm Password" required="required">
+                                <input type="text" class="form-control" id="address" placeholder="Address"
+                                    required="required" name="address">
+                                <input type="hidden" value="{{Request::ip()}}" name="ip" />
                             </div>
+                            <span class="badge badge-danger fieldRequiredAddress" style="display: none">Enter your
+                                Address</span>
                         </div>
                         <div class="form-group">
                             <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a
                                     href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                            <button type="submit" class="btn btn-primary btn-lg submit"
+                                {{-- onclick="return valid_number()" --}}>Book</button>
                         </div>
                     </form>
-                    <div class="text-center">Already have an account? <a href="#">Login here</a></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".submit").click(function(e){
+            e.preventDefault();
+            var phone = $('#number').val();
+            var name = $('#name').val();
+            var address = $('#address').val();
+            
+            if(!name){
+                $('.fieldRequiredName').show();
+            }else{
+                $('.fieldRequiredName').hide();
+            }
+
+            if(!phone){
+                $('.fieldRequiredNumber').show();
+            }else{
+                $('.fieldRequiredNumber').hide();
+            }
+
+            if(!address){
+                $('.fieldRequiredAddress').show();
+            }else{
+                $('.fieldRequiredAddress').hide();
+            }
+
+
+            var code = "IN";
+            // var str = $("form").serializeArray();
+            if(phone && name && address){
+                $.ajax({
+                    url: '{{ URL:: to('vsm-mobile-validate2') }}',
+                    type: 'POST',
+                    async: false,
+                    dataType: "json",
+                    data:{'phone':phone,'country_code':code},
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    success:function(data){
+                        for (const [key, value] of Object.entries(data)) {
+                            var status = value.status;
+                        }    
+                        if(status=="Success"){
+                            $('#ambulanceForm').submit();
+                        }else{
+                            $('.invalidNo').show();
+                        }
+                    }
+                });
+            }    
+        });
+    });
+</script>
