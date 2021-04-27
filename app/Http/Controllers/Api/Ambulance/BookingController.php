@@ -19,6 +19,7 @@ class BookingController extends Controller
             \Log::info("Validation error" . print_r($validator->errors(), 1));
             return response()->json(['error' => $validator->errors()], 401);
         } else {
+            // $user_info = auth()->user()->ambulance();   
             AmbulanceBooking::bookAmbulance($request);
         }
     }

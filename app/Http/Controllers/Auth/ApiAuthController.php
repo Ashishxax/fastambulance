@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Events\WebsocketEvent;
 
 class ApiAuthController extends Controller
 {
@@ -31,7 +32,7 @@ class ApiAuthController extends Controller
     public function login (Request $request) {
         $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|between:6,255|confirmed'
         ]);
         if ($validator->fails())
         {
@@ -42,6 +43,8 @@ class ApiAuthController extends Controller
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['token' => $token];
+                //  listening User On login
+                broadcast(new WebsocketEvent('some data'));
                 return response($response, 200);
             } else {
                 $response = ["message" => "Password mismatch"];

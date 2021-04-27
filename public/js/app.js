@@ -43506,7 +43506,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "AshishKey",
+  key: "anyKey",
   // cluster: process.env.MIX_PUSHER_APP_CLUSTER,
   // encrypted: true,
   wsHost: window.location.hostname,
@@ -43516,6 +43516,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 });
 window.Echo.channel('DemoChannel').listen('WebsocketEvent', function (e) {
   console.log(e);
+  alert('show msg');
 });
 
 /***/ }),

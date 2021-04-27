@@ -8,6 +8,8 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script> --}}
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/ambulance.css') }}" rel="stylesheet">

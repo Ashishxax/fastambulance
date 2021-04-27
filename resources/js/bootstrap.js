@@ -47,4 +47,5 @@ window.Echo = new Echo({
 window.Echo.channel('DemoChannel')
     .listen('WebsocketEvent', (e) => {
         console.log(e);
+        alert('show msg');
     })
