@@ -12,10 +12,10 @@ return [
      
     'apps' => [
         [
-            'id' => 'AshishId',//env('PUSHER_APP_ID'),
-            'name' => 'Ashish',//env('APP_NAME'),
-            'key' => 'ashishkey',//env('PUSHER_APP_KEY'),
-            'secret' =>'AshishSecret',// env('PUSHER_APP_SECRET'),
+            'id' => env('PUSHER_APP_ID'),
+            'name' => env('APP_NAME'),
+            'key' => env('PUSHER_APP_KEY'),
+            'secret' =>env('PUSHER_APP_SECRET'),
             'path' => env('PUSHER_APP_PATH'),
             'capacity' => null,
             'enable_client_messages' => false,
@@ -38,16 +38,16 @@ return [
     'path' => 'admin/websockets',
 
      
-    'middleware' => [
-        'web',
-        Authorize::class,
-    ],
+    // 'middleware' => [
+    //     'web',
+    //     Authorize::class,
+    // ],
 
     'statistics' => [
         /*
-         * This model will be used to store the statistics of the WebSocketsServer.
-         * The only requirement is that the model should extend
-         * `WebSocketsStatisticsEntry` provided by this package.
+          This model will be used to store the statistics of the WebSocketsServer.
+          The only requirement is that the model should extend
+          `WebSocketsStatisticsEntry` provided by this package.
          */
         'model' => \BeyondCode\LaravelWebSockets\Statistics\Models\WebSocketsStatisticsEntry::class,
 
@@ -60,8 +60,8 @@ return [
         'interval_in_seconds' => 60,
 
         /*
-         * When the clean-command is executed, all recorded statistics older than
-         * the number of days specified here will be deleted.
+          When the clean-command is executed, all recorded statistics older than
+          the number of days specified here will be deleted.
          */
         'delete_statistics_older_than_days' => 60,
 

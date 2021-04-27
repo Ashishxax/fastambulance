@@ -44,6 +44,7 @@ window.Echo = new Echo({
     disableStats: true,
 });
 
-window.Echo.channel('DemoChannel').listen('WebsocketEvent', (e) => {
-    console.log(e);
-})
+window.Echo.channel('DemoChannel')
+    .listen('WebsocketEvent', (e) => {
+        console.log(e);
+    })
