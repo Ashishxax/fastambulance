@@ -10,6 +10,9 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
+use Illuminate\Http\Request;
+use App\Models\Ambulance;
+
 class WebsocketEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
@@ -23,6 +26,9 @@ class WebsocketEvent implements ShouldBroadcast
 
     public function broadcastOn()
     {
+        // if($request['id']){
+        //     Ambulance::sync_lat_long($request);
+        // }
         return new Channel('DemoChannel');
     }
 }

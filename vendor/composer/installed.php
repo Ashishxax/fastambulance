@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '06255fbb648be4627244dd9100ce09dfd02ced7e',
+    'reference' => '3072a4776e80d4d345ecf81db0527dde2f1b07ca',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -476,7 +476,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '06255fbb648be4627244dd9100ce09dfd02ced7e',
+      'reference' => '3072a4776e80d4d345ecf81db0527dde2f1b07ca',
     ),
     'laravel/passport' => 
     array (
@@ -1150,6 +1150,15 @@
       array (
       ),
       'reference' => '99732be0ddb3361e16ad77b68ba41efc8e979019',
+    ),
+    'spatie/geocoder' => 
+    array (
+      'pretty_version' => '3.10.1',
+      'version' => '3.10.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '083438f249cdbfb0d7d8a9b95aa17c60a204d925',
     ),
     'swiftmailer/swiftmailer' => 
     array (

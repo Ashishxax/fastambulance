@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AmbulanceBooking extends Model
 {
     protected $table = 'ambulance_booking';
-    protected $fillable = ['name','mobile','address','ip_address'];
+    protected $fillable = ['name','mobile','address','pincode','ip_address'];
 
     public static function bookAmbulance($request){
         self::insert(array(

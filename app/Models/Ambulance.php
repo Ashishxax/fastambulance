@@ -13,4 +13,10 @@ class Ambulance extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public static function sync_lat_long($request){
+        $amb_data = self::find($request['id']);   
+        if($amb_data['latitude'] != $request['latitude'])
+            self::where('id',$request['id'])->update(array('latitude'=>$request['latitude'],'longitude'=>$request['longitude']));
+        return true;
+    }
 }

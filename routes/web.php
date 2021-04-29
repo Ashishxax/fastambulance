@@ -9,7 +9,7 @@ Route::post('vsm-mobile-validate2/', function () {
 });
 
 Route::get('/', function () {
-    broadcast(new WebsocketEvent('some data'));
+broadcast(new WebsocketEvent('some data'));
     return view('welcome');
 });
 Route::post('/valid-mobile-number','Ambulance\IndexController@number_validation');

@@ -120,8 +120,8 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name"
-                                    required="required">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Ashish Bhardwaj" required="required">
                             </div>
                             <span class="badge badge-danger fieldRequiredName" style="display: none">Enter your
                                 name</span>
@@ -132,7 +132,7 @@
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input id="number" class="form-control"
                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    type="number" maxlength="10" required placeholder="Mobile Number" name="number">
+                                    type="number" maxlength="10" required placeholder="810 967 8505" name="number">
                             </div>
                             <span class="badge badge-danger invalidNo" style="display: none">Number is not valid. Try
                                 with other number</span>
@@ -145,8 +145,10 @@
                                     <i class="fa fa-lock"></i>
                                     <i class="fa fa-check"></i>
                                 </span>
-                                <input type="text" class="form-control" id="address" placeholder="Address"
+                                <input type="text" class="form-control" id="address" placeholder="Saket"
                                     required="required" name="address">
+                                <input type="text" class="form-control" id="city" placeholder="Delhi" required
+                                    name="city" />
                                 <input type="hidden" value="{{Request::ip()}}" name="ip" />
                             </div>
                             <span class="badge badge-danger fieldRequiredAddress" style="display: none">Enter your

@@ -43514,9 +43514,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   forceTLS: false,
   disableStats: true
 });
-window.Echo.channel('DemoChannel').listen('WebsocketEvent', function (e) {
-  console.log(e);
-  alert('show msg');
+window.Echo.channel('DemoChannel').listen('WebsocketEvent', function (e) {// console.log(e);
+  // window.location.href = '../sync-ambulance-gps';
 });
 
 /***/ }),
