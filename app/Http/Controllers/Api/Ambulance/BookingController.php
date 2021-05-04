@@ -24,19 +24,19 @@ class BookingController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         } else {
             // $user_info = auth()->user()->ambulance();   
-            // AmbulanceBooking::bookAmbulance($request);
+            AmbulanceBooking::bookAmbulance($request);
             $result = [];
             $client = new \GuzzleHttp\Client();
             $geocoder = new \Geocoder($client);
             $data = \Geocoder::getCoordinatesForAddress($request['landmark'], $request['city'], 'India');
+            // dd($data);
             if($data['accuracy']!='result_not_found'){
                 $latitude = $data['lat'];
                 $longitude = $data['lng'];
                 $ambulanceDetails = Ambulance::selectRaw('address,user_id,pincode,city,state,latitude,longitude, ( 6367 * acos( cos( radians( ? ) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians( ? ) ) + sin( radians( ? ) ) * sin( radians( latitude ) ) ) ) AS distance', [$latitude, $longitude, $latitude])
                 ->having('distance', '<', 10)->orderByRaw('distance ASC')->get();
-                // dd($ambulanceDetails);
                 for($i=0; $i <count($ambulanceDetails); $i++){
-                    // AmbSearchRequest::searchAmbulance($ambulanceDetails[$i]['user_id']);
+                    AmbSearchRequest::searchAmbulance($ambulanceDetails[$i]['user_id']);
                     $output[$i]['user_id'] = $ambulanceDetails[$i]['user_id'];
                     $output[$i]['address'] = $ambulanceDetails[$i]['address'];
                     $output[$i]['pincode'] = $ambulanceDetails[$i]['pincode'];
