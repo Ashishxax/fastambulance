@@ -34,7 +34,8 @@ class BookingController extends Controller
                 $latitude = $data['lat'];
                 $longitude = $data['lng'];
                 $ambulanceDetails = Ambulance::selectRaw('address,user_id,pincode,city,state,latitude,longitude, ( 6367 * acos( cos( radians( ? ) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians( ? ) ) + sin( radians( ? ) ) * sin( radians( latitude ) ) ) ) AS distance', [$latitude, $longitude, $latitude])
-                ->having('distance', '<', 10)->orderByRaw('distance ASC')->get();
+                // ->having('distance', '<', 10)
+                ->orderByRaw('distance ASC')->get();
                 for($i=0; $i <count($ambulanceDetails); $i++){
                     AmbSearchRequest::searchAmbulance($ambulanceDetails[$i]['user_id']);
                     $output[$i]['user_id'] = $ambulanceDetails[$i]['user_id'];

@@ -45,7 +45,7 @@ class ApiAuthController extends Controller
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['token' => $token];
                 //  listening User On login
-                broadcast(new WebsocketEvent('some data'));
+                // broadcast(new WebsocketEvent('some data'));
                 return response($response, 200);
             } else {
                 $response = ["message" => "Password mismatch"];

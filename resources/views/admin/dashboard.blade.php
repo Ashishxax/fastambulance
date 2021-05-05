@@ -183,10 +183,11 @@
                                     <h6 class="m-0">New Ambulance</h6>
                                 </div>
                                 <div class="card-body d-flex flex-column">
-                                    <form class="quick-post-form">
+                                    <form action="{{ route('booking-request') }}" class="quick-post-form">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Add Here"> </div>
+                                            <input type="text" class="form-control" id="name"
+                                                aria-describedby="emailHelp" placeholder="Ambulance Name">
+                                        </div>
                                         <div class="form-group">
                                             <textarea class="form-control"
                                                 placeholder="Words can be like X-rays if you use them properly..."></textarea>
@@ -204,20 +205,19 @@
                         <div class="col-lg-5 col-md-12 col-sm-12 mb-4">
                             <div class="card card-small blog-comments">
                                 <div class="card-header border-bottom">
-                                    <h6 class="m-0">Discussions</h6>
+                                    <h6 class="m-0">Daily Day Activity</h6>
                                 </div>
                                 <div class="card-body p-0">
                                     <div class="blog-comments__item d-flex p-3">
-                                        <div class="blog-comments__avatar mr-3">
-                                            <img src="images/avatars/1.jpg" alt="User avatar" /> </div>
+
                                         <div class="blog-comments__content">
                                             <div class="blog-comments__meta text-muted">
-                                                <a class="text-secondary" href="#">James Johnson</a> on
-                                                <a class="text-secondary" href="#">Hello World!</a>
-                                                <span class="text-muted">– 3 days ago</span>
+                                                <a class="text-secondary" href="#">{{$lastbooking['name']}}</a>
+                                                <a class="text-secondary" href="#">Booked Ambulance from</a>
+                                                <span class="text-muted">– {{$lastbooking['landmark']}}</span>
                                             </div>
-                                            <p class="m-0 my-1 mb-2 text-muted">Well, the way they make shows is, they
-                                                make one show ...</p>
+                                            <p class="m-0 my-1 mb-2 text-muted">{{$lastbooking['mobile']}}
+                                                {{$lastbooking['pincode']}}{{$lastbooking['city']}}</p>
                                             <div class="blog-comments__actions">
                                                 <div class="btn-group btn-group-sm">
                                                     <button type="button" class="btn btn-white">
@@ -228,25 +228,19 @@
                                                         <span class="text-danger">
                                                             <i class="material-icons">clear</i>
                                                         </span> Reject </button>
-                                                    <button type="button" class="btn btn-white">
-                                                        <span class="text-light">
-                                                            <i class="material-icons">more_vert</i>
-                                                        </span> Edit </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="blog-comments__item d-flex p-3">
-                                        <div class="blog-comments__avatar mr-3">
-                                            <img src="images/avatars/2.jpg" alt="User avatar" /> </div>
+
                                         <div class="blog-comments__content">
                                             <div class="blog-comments__meta text-muted">
-                                                <a class="text-secondary" href="#">James Johnson</a> on
-                                                <a class="text-secondary" href="#">Hello World!</a>
-                                                <span class="text-muted">– 4 days ago</span>
+                                                <a class="text-secondary" href="#">{{$lastUser['name']}}</a> email
+                                                <a class="text-secondary" href="#">{{$lastUser['email']}}</a>
                                             </div>
-                                            <p class="m-0 my-1 mb-2 text-muted">After the avalanche, it took us a week
-                                                to climb out. Now...</p>
+                                            <p class="m-0 my-1 mb-2 text-muted">added on
+                                                {{ date('d-M-Y', strtotime($lastUser['created_at']))}}</p>
                                             <div class="blog-comments__actions">
                                                 <div class="btn-group btn-group-sm">
                                                     <button type="button" class="btn btn-white">
@@ -257,39 +251,31 @@
                                                         <span class="text-danger">
                                                             <i class="material-icons">clear</i>
                                                         </span> Reject </button>
-                                                    <button type="button" class="btn btn-white">
-                                                        <span class="text-light">
-                                                            <i class="material-icons">more_vert</i>
-                                                        </span> Edit </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="blog-comments__item d-flex p-3">
-                                        <div class="blog-comments__avatar mr-3">
-                                            <img src="images/avatars/3.jpg" alt="User avatar" /> </div>
+
                                         <div class="blog-comments__content">
                                             <div class="blog-comments__meta text-muted">
-                                                <a class="text-secondary" href="#">James Johnson</a> on
-                                                <a class="text-secondary" href="#">Hello World!</a>
-                                                <span class="text-muted">– 5 days ago</span>
+                                                <a class="text-secondary" href="#">{{$lastAmbulance['name']}}</a> from
+                                                <a class="text-secondary" href="#">{{$lastAmbulance['address']}}</a>
+                                                <span class="text-muted">added on
+                                                    {{ date('d-M-Y', strtotime($lastAmbulance['created_at']))}}</span>
                                             </div>
-                                            <p class="m-0 my-1 mb-2 text-muted">My money's in that office, right? If she
-                                                start giving me...</p>
+                                            <p class="m-0 my-1 mb-2 text-muted">{{$lastAmbulance['pincode']}}
+                                                {{$lastAmbulance['city']}}</p>
                                             <div class="blog-comments__actions">
                                                 <div class="btn-group btn-group-sm">
                                                     <button type="button" class="btn btn-white">
                                                         <span class="text-success">
-                                                            <i class="material-icons">check</i>
-                                                        </span> Approve </button>
+                                                            Latitude &MediumSpace;
+                                                        </span> {{$lastAmbulance['latitude']}} </button>
                                                     <button type="button" class="btn btn-white">
-                                                        <span class="text-danger">
-                                                            <i class="material-icons">clear</i>
-                                                        </span> Reject </button>
-                                                    <button type="button" class="btn btn-white">
-                                                        <span class="text-light">
-                                                            <i class="material-icons">more_vert</i>
-                                                        </span> Edit </button>
+                                                        <span class="text-success">
+                                                            Longitude &MediumSpace;
+                                                        </span> {{$lastAmbulance['longitude']}} </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -298,7 +284,7 @@
                                 <div class="card-footer border-top">
                                     <div class="row">
                                         <div class="col text-center view-report">
-                                            <button type="submit" class="btn btn-white">View All Comments</button>
+                                            <button type="submit" class="btn btn-white">All Booking</button>
                                         </div>
                                     </div>
                                 </div>
@@ -309,48 +295,38 @@
                         <div class="col-lg-3 col-md-12 col-sm-12 mb-4">
                             <div class="card card-small">
                                 <div class="card-header border-bottom">
-                                    <h6 class="m-0">Top Referrals</h6>
+                                    <h6 class="m-0">Every Stats</h6>
                                 </div>
                                 <div class="card-body p-0">
                                     <ul class="list-group list-group-small list-group-flush">
                                         <li class="list-group-item d-flex px-3">
-                                            <span class="text-semibold text-fiord-blue">GitHub</span>
+                                            <span class="text-semibold text-fiord-blue">Ambulance</span>
                                             <span
-                                                class="ml-auto text-right text-semibold text-reagent-gray">19,291</span>
+                                                class="ml-auto text-right text-semibold text-reagent-gray">{{$ambulance}}</span>
                                         </li>
                                         <li class="list-group-item d-flex px-3">
-                                            <span class="text-semibold text-fiord-blue">Stack Overflow</span>
+                                            <span class="text-semibold text-fiord-blue">Bookings</span>
                                             <span
-                                                class="ml-auto text-right text-semibold text-reagent-gray">11,201</span>
+                                                class="ml-auto text-right text-semibold text-reagent-gray">{{$booking}}</span>
                                         </li>
                                         <li class="list-group-item d-flex px-3">
-                                            <span class="text-semibold text-fiord-blue">Hacker News</span>
+                                            <span class="text-semibold text-fiord-blue">Searches</span>
                                             <span
-                                                class="ml-auto text-right text-semibold text-reagent-gray">9,291</span>
+                                                class="ml-auto text-right text-semibold text-reagent-gray">{{$search}}</span>
                                         </li>
                                         <li class="list-group-item d-flex px-3">
-                                            <span class="text-semibold text-fiord-blue">Reddit</span>
+                                            <span class="text-semibold text-fiord-blue">Location</span>
                                             <span
-                                                class="ml-auto text-right text-semibold text-reagent-gray">8,281</span>
+                                                class="ml-auto text-right text-semibold text-reagent-gray">{{$location}}</span>
                                         </li>
                                         <li class="list-group-item d-flex px-3">
-                                            <span class="text-semibold text-fiord-blue">The Next Web</span>
+                                            <span class="text-semibold text-fiord-blue">New Users</span>
                                             <span
-                                                class="ml-auto text-right text-semibold text-reagent-gray">7,128</span>
+                                                class="ml-auto text-right text-semibold text-reagent-gray">{{$users}}</span>
                                         </li>
                                         <li class="list-group-item d-flex px-3">
-                                            <span class="text-semibold text-fiord-blue">Tech Crunch</span>
-                                            <span
-                                                class="ml-auto text-right text-semibold text-reagent-gray">6,218</span>
-                                        </li>
-                                        <li class="list-group-item d-flex px-3">
-                                            <span class="text-semibold text-fiord-blue">YouTube</span>
-                                            <span
-                                                class="ml-auto text-right text-semibold text-reagent-gray">1,218</span>
-                                        </li>
-                                        <li class="list-group-item d-flex px-3">
-                                            <span class="text-semibold text-fiord-blue">Adobe</span>
-                                            <span class="ml-auto text-right text-semibold text-reagent-gray">827</span>
+                                            <span class="text-semibold text-fiord-blue">Overall Customers</span>
+                                            <span class="ml-auto text-right text-semibold text-reagent-gray">100</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -365,7 +341,7 @@
                                             </select>
                                         </div>
                                         <div class="col text-right view-report">
-                                            <a href="#">Full report &rarr;</a>
+                                            <a href="{{ route('booking-request') }}">Full report &rarr;</a>
                                         </div>
                                     </div>
                                 </div>
@@ -382,4 +358,4 @@
 
 </body>
 
-</ht
+</html>

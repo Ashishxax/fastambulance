@@ -19,4 +19,15 @@ class AmbulanceBooking extends Model
         ));
         return true;
     }
+    public static function bookAmbulanceDesktop($request){
+        
+        self::insert(array(
+            'name'          => $request['name'],
+            'mobile'       => $request['number'],
+            'landmark'   => $request['address'],
+            'city'             => $request['city'],
+            'ip_address' => $request['ip'],
+        ));
+        return true;
+    }
 }

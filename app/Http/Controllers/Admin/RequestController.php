@@ -11,7 +11,7 @@ use App\Models\Ambulance;
 class RequestController extends Controller
 {
     public function booking_request(){
-        $bookingrequest = AmbulanceBooking::paginate(5);
+        $bookingrequest = AmbulanceBooking::orderBy('id', 'desc')->paginate(5);
         return view('admin.bookingRequest',compact('bookingrequest'));
     }
     public function user_search(){

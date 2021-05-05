@@ -14,38 +14,38 @@
         </nav>
     </div>
     <div class="nav-wrapper">
-        <ul class="nav flex-column">
-            <li class="nav-item">
+        <ul class="nav flex-column" id="myDIV">
+            <li class="nav-item" id="ff">
                 <a class="nav-link active" href="{{ route('dashboard') }}">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons lnk">dashboard</i>
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('admin.ambulance') }}">
+            <li class="nav-item" id="ff">
+                <a class="nav-link " href="{{ route('ambulance') }}">
                     <i class="material-icons">airport_shuttle</i>
                     <span>Manage Ambulance</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('admin.request') }}">
+            <li class="nav-item" id="ff">
+                <a class="nav-link " href="{{ route('booking-request') }}">
                     <i class="material-icons">today</i>
                     <span>Booking Request</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('admin.search') }}">
+            <li class="nav-item" id="ff">
+                <a class="nav-link " href="{{ route('user-search') }}">
                     <i class="material-icons">person_search</i>
                     <span>User Search</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('admin.users') }}">
+            <li class="nav-item" id="ff">
+                <a class="nav-link " href="{{ route('user') }}">
                     <i class="material-icons">people</i>
                     <span>Manage Users</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="ff">
                 <a class="nav-link " href="{{route('admin-logout')}}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="material-icons">logout</i>
@@ -55,18 +55,6 @@
                     </form>
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link " href="">
-                    <i class="material-icons">person</i>
-                    <span>Users</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="errors.html">
-                    <i class="material-icons">error</i>
-                    <span>Errors</span>
-                </a>
-            </li> --}}
         </ul>
     </div>
 </aside>

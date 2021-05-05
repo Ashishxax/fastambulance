@@ -122,7 +122,7 @@
                 return i === 0 ? 1 : i;
             }),
             datasets: [{
-                    label: 'Current Month',
+                    label: 'Last Month',
                     fill: 'start',
                     data: products,
                     backgroundColor: 'rgba(0,123,255,0.1)',
@@ -134,7 +134,7 @@
                     pointHoverRadius: 3
                 },
                 {
-                    label: 'Past Month',
+                    label: 'Current Month',
                     fill: 'start',
                     data: items,
                     backgroundColor: 'rgba(255,65,105,0.1)',

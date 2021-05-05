@@ -145,9 +145,9 @@
                                     <i class="fa fa-lock"></i>
                                     <i class="fa fa-check"></i>
                                 </span>
-                                <input type="text" class="form-control" id="address" placeholder="Saket"
-                                    required="required" name="address">
-                                <input type="text" class="form-control" id="city" placeholder="Delhi" required
+                                <input type="text" class="form-control" id="address"
+                                    placeholder="Paryawaran complex Saket" required="required" name="address">
+                                <input type="text" class="form-control" id="city" placeholder="New Delhi" required
                                     name="city" />
                                 <input type="hidden" value="{{Request::ip()}}" name="ip" />
                             </div>
@@ -168,6 +168,14 @@
         </div>
     </div>
 </div>
+{{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script> --}}
 <script type="text/javascript">
     $(document).ready(function() {
         $(".submit").click(function(e){
@@ -175,6 +183,7 @@
             var phone = $('#number').val();
             var name = $('#name').val();
             var address = $('#address').val();
+            var city = $('#city').val();
             
             if(!name){
                 $('.fieldRequiredName').show();
@@ -188,7 +197,7 @@
                 $('.fieldRequiredNumber').hide();
             }
 
-            if(!address){
+            if(!address || !city){
                 $('.fieldRequiredAddress').show();
             }else{
                 $('.fieldRequiredAddress').hide();
@@ -197,7 +206,7 @@
 
             var code = "IN";
             // var str = $("form").serializeArray();
-            if(phone && name && address){
+            if(phone && name && address && city){
                 $.ajax({
                     url: '{{ URL:: to('vsm-mobile-validate2') }}',
                     type: 'POST',

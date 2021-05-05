@@ -51,9 +51,9 @@
                         </div>
                     </div>
                 </div>
+
+                @include('admin.admin_footer')
+            </main>
         </div>
-        @include('admin.admin_footer')
-        </main>
-    </div>
     </div>
 </body>

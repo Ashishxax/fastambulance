@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Nearby Doc</title>
+    <title>Fast Ambulance</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description"
         content="Fast Ambulance &amp; book ambulance nearby yours find immediate ambulance by just search button">
