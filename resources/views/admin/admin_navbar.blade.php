@@ -57,7 +57,7 @@
                     <img class="user-avatar rounded-circle mr-2" src="images/avatars/0.jpg" alt="">
                     <span class="d-none d-md-inline-block">Ashish</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-small">
+                <div class="dropdown-menu dropdown-menu-small dropdown-menu-right header-dropdown" >
                     <a class="dropdown-item" href="{{ route('ambulance') }}">
                         <i class="material-icons">&#xE7FD;</i> Ambulance</a>
                     <a class="dropdown-item" href="{{ route('booking-request') }}">

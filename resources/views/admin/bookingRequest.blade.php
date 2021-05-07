@@ -25,7 +25,7 @@
                                 <div class="card-header border-bottom">
                                     <h4 class="m-0" style="text-align:center; font-family:auto">User's request</h4>
                                 </div>
-                                <div class="card-body p-0 pb-3 text-center">
+                                <div class="card-body p-0 pb-3 text-center table-responsive-sm">
                                     <table class="table mb-0">
                                         <thead class="bg-light">
                                             <tr>

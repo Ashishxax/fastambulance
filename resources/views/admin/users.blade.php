@@ -34,7 +34,7 @@ if(Session::get('status_update'))
                                 <div class="card-header border-bottom">
                                     <h6 class="m-0">Active Users</h6>
                                 </div>
-                                <div class="card-body p-0 pb-3 text-center">
+                                <div class="card-body p-0 pb-3 text-center table-responsive-sm">
                                     <table class="table mb-0">
                                         <thead class="bg-light">
                                             <tr>

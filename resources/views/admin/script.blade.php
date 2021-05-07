@@ -14,11 +14,11 @@
 <script src="js/app-blog-overview.1.1.0.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $(".nav li a").on("click", function() {
-            alert('hhh');
-            $(".nav").find(".active").removeClass("active");
-            $("li a").addClass("active");
-        });
-    });    
+    // $(document).ready(function() {
+    //     $(".nav li a").on("click", function() {
+    //         alert('hhh');
+    //         $(".nav").find(".active").removeClass("active");
+    //         $("li a").addClass("active");
+    //     });
+    // });    
 </script>
