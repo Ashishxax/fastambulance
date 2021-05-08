@@ -12,13 +12,3 @@
 <script src="js/extras.1.1.0.min.js"></script>
 <script src="js/shards-dashboards.1.1.0.min.js"></script>
 <script src="js/app-blog-overview.1.1.0.js"></script>
-
-<script>
-    // $(document).ready(function() {
-    //     $(".nav li a").on("click", function() {
-    //         alert('hhh');
-    //         $(".nav").find(".active").removeClass("active");
-    //         $("li a").addClass("active");
-    //     });
-    // });    
-</script>

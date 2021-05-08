@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-lg-4"></div>
             <div class=" col-sm-12 col-md-lg-4">
-                <div class="AmbulanceCar hide" style='background-image: url("img/ambulance_image/ambulance.webp");'>
+                <div class="AmbulanceCar hide" style="background-image: url('img/ambulance_image/ambulance.webp');">
                     <div class="outCircle">
                         <div class="rotate-img ">
 
@@ -65,12 +65,10 @@
     @include('ambulance')
 
     <script>
-       $(window).ready(function() { 
-    $('.AmbulanceCar').addClass("show");
- 
-
-});
-    </script>    
+        $(window).ready(function() { 
+            $('.AmbulanceCar').addClass("show");
+        });
+    </script>
 </body>
 
 </html>

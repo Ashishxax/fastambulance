@@ -7,16 +7,9 @@
     position: absolute;
     animation: ambulance 4s linear infinite;
 }
-.show{
-    display: block !important;
-}
-.hide{
-        display: none;
-}
+
 .AmbulanceCar {
     /*background-image: url('/img/ambulance_image/ambulance.jpg');*/
-
-
     background-position: center;
     width: 100%;
     height: 100%;
@@ -29,9 +22,17 @@
     z-index: 1;
 }
 
+.show {
+    display: block !important;
+}
+
+.hide {
+    display: none;
+}
+
 .outCircle {
     background-color: transparent;
-    opacity: 0.9;
+    opacity: .9;
     /*  margin-left: 2px;
     margin-bottom: 100px;*/
     -webkit-animation: spinoffPulse 18s infinite linear;
@@ -124,9 +125,9 @@ img {
         margin-top: 65% !important;
     }
     .image-two img {
-        margin-left: 22% !important;
-        width: 75% !important;
-        margin-top: -47% !important;
+        margin-left: 32% !important;
+        width: 54% !important;
+        margin-top: -26% !important;
     }
     .image-three img {
         margin-left: 33% !important;
@@ -134,14 +135,14 @@ img {
         width: 46% !important;
     }
     .image-one img {
-        margin-top: -161px !important;
-        width: 69% !important;
-        margin-left: 25% !important;
+        margin-top: -88px !important;
+        width: 50% !important;
+        margin-left: 34% !important;
     }
     .rotate-img img {
-        width: 57% !important;
-        margin-left: 21% !important;
-        margin-bottom: -21% !important;
+        width: 40% !important;
+        margin-left: 30% !important;
+        margin-bottom: -20% !important;
     }
     .bookBtn {
         margin-top: 25% !important;
@@ -156,58 +157,25 @@ img {
     }
 }
 
-@media only screen and (max-width: 540px) and (min-width: 414px) {
+@media only screen and (max-width: 414px) and (min-width: 360px) {
     .outCircle {
         margin-top: 40% !important;
     }
-    .image-two img {
-        margin-left: 17% !important;
-        width: 68% !important;
-        margin-top: -44% !important;
+    .rotate-one {
+        animation: spin 1s linear infinite;
+        position: fixed;
+        border: 4px solid blue;
+        border-radius: 50%;
     }
-    .image-three img {
-        margin-left: 33% !important;
-        margin-top: -25% !important;
-        width: 46% !important;
+    .rotate-two {
+        animation: spin 1s linear infinite;
+        position: fixed;
+        border: 4px solid red;
+        border-radius: 50%;
     }
-    .image-one img {
-        margin-top: -171px !important;
-        width: 63% !important;
-        margin-left: 19% !important;
-    }
-    .rotate-img img {
-        width: 61% !important;
-        margin-left: 20% !important;
-        margin-bottom: -21% !important;
-    }
-    .bookBtn {
-        margin-top: 26% !important;
-        margin-left: 39%;
-    }
-}
-
-@media only screen and (max-width: 411px) and (min-width: 375px) {
-    .outCircle {
-        margin-top: 40% !important;
-    }
-    .image-two img {
-        margin-left: 16% !important;
-        width: 68% !important;
-        margin-top: -44% !important;
-    }
-    .image-one img {
-        margin-top: -152px !important;
-        width: 62% !important;
-        margin-left: 19% !important;
-    }
-    .rotate-img img {
-        width: 61% !important;
-        margin-left: 20% !important;
-        margin-bottom: -21% !important;
-    }
-    .bookBtn {
-        margin-top: 26% !important;
-        margin-left: 39%;
+    .rotate-three {
+        animation: spin 1s linear infinite;
+        position: fixed;
     }
 }
 

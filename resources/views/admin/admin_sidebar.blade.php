@@ -16,25 +16,29 @@
     <div class="nav-wrapper">
         <ul class="nav flex-column" id="myDIV">
             <li class="nav-item" id="ff">
-                <a  class="{{ Request::is('dashboard') ? 'nav-link active ' : 'nav-link' }}" href="{{ route('dashboard') }}" >
+                <a class="{{ Request::is('dashboard') ? 'nav-link active ' : 'nav-link' }}"
+                    href="{{ route('dashboard') }}">
                     <i class="material-icons lnk">dashboard</i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="nav-item" id="ff">
-                <a  class="{{ Request::is('ambulance') ? 'nav-link active ' : 'nav-link' }}" href="{{ route('ambulance') }}" >
+                <a class="{{ Request::is('ambulance') ? 'nav-link active ' : 'nav-link' }}"
+                    href="{{ route('ambulance') }}">
                     <i class="material-icons">airport_shuttle</i>
                     <span>Manage Ambulance</span>
                 </a>
             </li>
             <li class="nav-item" id="ff">
-                <a class="{{ Request::is('booking-request') ? 'nav-link active ' : 'nav-link' }}" href="{{ route('booking-request') }}">
+                <a class="{{ Request::is('booking-request') ? 'nav-link active ' : 'nav-link' }}"
+                    href="{{ route('booking-request') }}">
                     <i class="material-icons">today</i>
                     <span>Booking Request</span>
                 </a>
             </li>
             <li class="nav-item" id="ff">
-                <a class="{{ Request::is('user-search') ? 'nav-link active ' : 'nav-link' }}" href="{{ route('user-search') }}">
+                <a class="{{ Request::is('user-search') ? 'nav-link active ' : 'nav-link' }}"
+                    href="{{ route('user-search') }}">
                     <i class="material-icons">person_search</i>
                     <span>User Search</span>
                 </a>

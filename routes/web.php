@@ -32,10 +32,10 @@ Route::post('admin-login', 'Admin\AdminController@admin_login')->name('admin-log
 
 Route::middleware('auth')->group(function(){
     Route::match(['get', 'post'],'/dashboard', 'Admin\DashboardController@dashboard')->name('dashboard');
-    Route::get('user','Admin\DashboardController@admin_users')->name('user');
-    Route::get('ambulance','Admin\DashboardController@ambulance')->name('ambulance');
-    Route::get('booking-request','Admin\RequestController@booking_request')->name('booking-request');
-    Route::get('user-search','Admin\RequestController@user_search')->name('user-search');
+    Route::get('/user','Admin\DashboardController@admin_users')->name('user');
+    Route::get('/ambulance','Admin\DashboardController@ambulance')->name('ambulance');
+    Route::get('/booking-request','Admin\RequestController@booking_request')->name('booking-request');
+    Route::get('/user-search','Admin\RequestController@user_search')->name('user-search');
     Route::post('ambulance-form','Admin\DashboardController@ambulance_form');
     Route::get('/get-record/{id}', 'Admin\DashboardController@get_record');
     Route::post('admin-logout', 'Admin\AdminController@admin_logout')->name('admin-logout');
